@@ -434,7 +434,7 @@ a{text-decoration:none;color:inherit}
           </div>
         </div>
 
-        <button type="submit" class="cta-button submit-btn" id="submit-btn">أكّدي الطلب — 3 600 دج</button>
+        <button type="submit" class="cta-button submit-btn" id="submit-btn">أكّدي الطلب</button>
         <div class="trust-text">فريقنا يتصل بيكِ لتأكيد الطلب قبل الإرسال — بلا ما تخلّصي حتى دورو قبل</div>
       </form>
 
@@ -832,7 +832,7 @@ function onOrderSuccess(){setButtonState('success');clearFormDraft();localStorag
 
 function showFakeSuccess(){setButtonState('success');triggerConfetti()}
 
-function setButtonState(state){var btn=document.getElementById('submit-btn');if(!btn)return;var total=3600*quantity;var states={loading:{html:'جاري الإرسال...',disabled:true,cls:'btn-loading'},success:{html:'تم استلام طلبك!',disabled:true,cls:'btn-success'},timeout:{html:'انتهت المهلة — أعيدي المحاولة',disabled:false,cls:'btn-error'},error:{html:'حدث خطأ، أعيدي المحاولة',disabled:false,cls:'btn-error'},default:{html:'أكّدي الطلب — '+formatPrice(total)+' دج',disabled:false,cls:''}};var s=states[state]||states.default;btn.innerHTML=s.html;btn.disabled=s.disabled;btn.className='cta-button submit-btn '+s.cls;btn.dataset.state=state}
+function setButtonState(state){var btn=document.getElementById('submit-btn');if(!btn)return;var states={loading:{html:'جاري الإرسال...',disabled:true,cls:'btn-loading'},success:{html:'تم استلام طلبك!',disabled:true,cls:'btn-success'},timeout:{html:'انتهت المهلة — أعيدي المحاولة',disabled:false,cls:'btn-error'},error:{html:'حدث خطأ، أعيدي المحاولة',disabled:false,cls:'btn-error'},default:{html:'أكّدي الطلب',disabled:false,cls:''}};var s=states[state]||states.default;btn.innerHTML=s.html;btn.disabled=s.disabled;btn.className='cta-button submit-btn '+s.cls;btn.dataset.state=state}
 
 function triggerConfetti(){var colors=[getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim(),getComputedStyle(document.documentElement).getPropertyValue('--color-gold').trim(),getComputedStyle(document.documentElement).getPropertyValue('--color-secondary').trim()];for(var i=0;i<24;i++){var piece=document.createElement('div');piece.className='confetti-piece';piece.style.left=Math.random()*100+'vw';piece.style.top='-10px';piece.style.background=colors[i%colors.length];piece.style.animationDuration=(2+Math.random()*2)+'s';piece.style.animationDelay=(Math.random()*0.5)+'s';if(i%3===0){piece.style.width='6px';piece.style.height='12px'}if(i%4===0){piece.style.borderRadius='50%';piece.style.width='10px';piece.style.height='10px'}document.body.appendChild(piece);setTimeout(function(){return piece.remove()},4000)}}
 
