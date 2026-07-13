@@ -212,14 +212,6 @@ a{text-decoration:none;color:inherit}
 .step-title{font-size:15px;font-weight:700;margin-bottom:4px}
 .step-desc{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.5}
 
-.tiktok-section{background:var(--color-bg);overflow:hidden}
-.tiktok-grid{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;-webkit-overflow-scrolling:touch}
-.tiktok-video{flex:0 0 55vw;scroll-snap-align:start;border-radius:12px;overflow:hidden;background:#000}
-.tiktok-video video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block}
-.tiktok-video{position:relative}
-.tiktok-video .play-overlay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;background:rgba(184,92,92,0.85);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;padding-left:3px;cursor:pointer;z-index:2;transition:opacity 0.3s}
-.tiktok-video .play-overlay.hidden{opacity:0;pointer-events:none}
-@media(min-width:768px){.tiktok-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;overflow:visible}.tiktok-video{flex:none;width:auto}}
 
 .faq-section{background:var(--color-bg-alt)}
 .faq-list{max-width:650px;margin:0 auto}
@@ -254,7 +246,7 @@ a{text-decoration:none;color:inherit}
 
 .confetti-piece{position:fixed;z-index:99999;width:6px;height:6px;animation:confettiFall linear forwards;pointer-events:none}
 
-@media(max-width:400px){.hero-section{padding:40px 8px 16px}.hero-h1{font-size:16px;line-height:1.3}.hero-sub{font-size:12px}.main-image-wrap img{aspect-ratio:3/4}.color-swatch{width:28px;height:28px}.size-btn{font-size:11px;min-height:34px;padding:0 10px}.delivery-btn{font-size:11px;padding:8px 4px}.summary-box{padding:10px}.summary-row .label{font-size:11px}.summary-row .value{font-size:12px}.summary-total-row .value{font-size:15px}.field input,.field select{padding:16px 12px 4px;font-size:13px}.field label{font-size:11px;top:11px}.field input:focus+label,.field input:not(:placeholder-shown)+label{top:3px;font-size:9px}.cta-button{padding:11px;font-size:14px}.section{padding:28px 12px}.play-overlay{width:44px;height:44px;font-size:18px}.success-card{padding:24px 16px}}
+@media(max-width:400px){.hero-section{padding:40px 8px 16px}.hero-h1{font-size:16px;line-height:1.3}.hero-sub{font-size:12px}.main-image-wrap img{aspect-ratio:3/4}.color-swatch{width:28px;height:28px}.size-btn{font-size:11px;min-height:34px;padding:0 10px}.delivery-btn{font-size:11px;padding:8px 4px}.summary-box{padding:10px}.summary-row .label{font-size:11px}.summary-row .value{font-size:12px}.summary-total-row .value{font-size:15px}.field input,.field select{padding:16px 12px 4px;font-size:13px}.field label{font-size:11px;top:11px}.field input:focus+label,.field input:not(:placeholder-shown)+label{top:3px;font-size:9px}.cta-button{padding:11px;font-size:14px}.section{padding:28px 12px}.success-card{padding:24px 16px}}
 .section-title{font-size:18px}.pain-text{font-size:14px}.feature-card{padding:14px}.feature-title{font-size:13px}.feature-desc{font-size:12px}.stat-num{font-size:22px}.countdown-wrap{padding:6px 8px}.countdown-label{font-size:10px}.cd-digit{font-size:12px;min-width:22px;padding:1px 4px}.bottom-trust{padding:4px 2px}.bottom-trust-item .text{font-size:7px}.btn-total{font-size:13px}}
 .btn-loading{animation:none!important;opacity:0.8}
 .btn-success{animation:none!important;background:linear-gradient(135deg,var(--color-secondary),#1B5E20)!important}
@@ -548,32 +540,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- Section 6: TikTok Videos -->
-<section class="section tiktok-section">
-  <div class="section-inner">
-    <h2 class="section-title reveal-on-scroll">👀 شوفيها بعينيكِ على TikTok</h2>
-    <div class="tiktok-grid">
-      <div class="tiktok-video reveal-on-scroll reveal-scale reveal-delay-1">
-        <video preload="metadata" poster="./75cf9755e1554735b1b306d9b1203458.png" controls playsinline>
-          <source src="./5911078285923592111.mp4" type="video/mp4">
-        </video>
-        <div class="play-overlay">▶</div>
-      </div>
-      <div class="tiktok-video reveal-on-scroll reveal-scale reveal-delay-2">
-        <video preload="metadata" poster="./4759b00cbfec43ea89b704efdcffe96a.png" controls playsinline>
-          <source src="./5911078285923592110.mp4" type="video/mp4">
-        </video>
-        <div class="play-overlay">▶</div>
-      </div>
-      <div class="tiktok-video reveal-on-scroll reveal-scale reveal-delay-1">
-        <video preload="metadata" poster="./a2a2b023d34c4410b81f4fa97deaf7f1.png" controls playsinline>
-          <source src="./5911078285923592109.mp4" type="video/mp4">
-        </video>
-        <div class="play-overlay">▶</div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- Section 6: TikTok Videos (removed) -->
 
 <!-- Section 7: FAQ -->
 <section class="section faq-section">
@@ -790,7 +757,7 @@ const UTM = (function(){var p=new URLSearchParams(window.location.search);return
 
 let selectedSize='',selectedColor='',quantity=1,deliveryType='home',formSubmitRetried=false;
 
-document.addEventListener('DOMContentLoaded',function(){initEntranceAnimations();initScrollReveals();initColorSelector();initSizeSelector();initQuantityStepper();initDeliveryToggle();initCountdown();initImageGallery();initFAQAccordion();initWilayaCascade();initFormValidation();initFloatingParticles();initAnimatedCounters();initVideoOverlay();initScrollProgress();initFormDraft();initTilt();updatePriceSummary();document.getElementById('order-form-element')?.addEventListener('submit',handleFormSubmit)});
+document.addEventListener('DOMContentLoaded',function(){initEntranceAnimations();initScrollReveals();initColorSelector();initSizeSelector();initQuantityStepper();initDeliveryToggle();initCountdown();initImageGallery();initFAQAccordion();initWilayaCascade();initFormValidation();initFloatingParticles();initAnimatedCounters();initScrollProgress();initFormDraft();initTilt();updatePriceSummary();document.getElementById('order-form-element')?.addEventListener('submit',handleFormSubmit)});
 
 
 
@@ -841,7 +808,6 @@ function initFloatingParticles(){var hero=document.getElementById('hero-section'
 function easeOutExpo(t){return t===1?1:1-Math.pow(2,-10*t)}
 function initAnimatedCounters(){var counters=document.querySelectorAll('[data-count]');if(!counters.length)return;var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(!entry.isIntersecting)return;var el=entry.target;var target=parseInt(el.dataset.count);var suffix=el.dataset.suffix||'';var prefix=el.dataset.prefix||'';var startVal=0;var duration=1800;var startTime=performance.now();var formatter=new Intl.NumberFormat('ar-DZ');(function tick(now){var t=Math.min(1,(now-startTime)/duration);var val=Math.floor(startVal+(target-startVal)*easeOutExpo(t));el.textContent=prefix+formatter.format(val)+suffix;if(t<1)requestAnimationFrame(tick);else el.textContent=prefix+formatter.format(target)+suffix})(startTime);observer.unobserve(el)})},{threshold:0.3});counters.forEach(function(el){return observer.observe(el)})}
 function initTilt(){if(matchMedia('(hover: none)').matches)return;document.querySelectorAll('[data-tilt]').forEach(function(card){card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect();var px=(e.clientX-r.left)/r.width;var py=(e.clientY-r.top)/r.height;var rx=(py-0.5)*8;var ry=(px-0.5)*-8;card.style.transform='perspective(900px) rotateX('+rx+'deg) rotateY('+ry+'deg)'});card.addEventListener('mouseleave',function(){card.style.transform=''})})}
-function initVideoOverlay(){document.querySelectorAll('.tiktok-video').forEach(function(w){var v=w.querySelector('video');var o=w.querySelector('.play-overlay');if(!v||!o)return;o.addEventListener('click',function(e){e.stopPropagation();v.play();o.classList.add('hidden')});v.addEventListener('play',function(){o.classList.add('hidden')});v.addEventListener('pause',function(){if(!v.ended)o.classList.remove('hidden')});v.addEventListener('ended',function(){o.classList.remove('hidden')})})}
 function initScrollProgress(){var bar=document.createElement('div');bar.className='scroll-progress';document.body.appendChild(bar);var ticking=false;window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){var h=document.documentElement;var pct=h.scrollTop/(h.scrollHeight-h.clientHeight);bar.style.transform='scaleX('+Math.min(1,Math.max(0,pct))+')';ticking=false});ticking=true}},{passive:true})}
 function initFormDraft(){restoreFormDraft();setInterval(saveFormDraft,3000)}
 
