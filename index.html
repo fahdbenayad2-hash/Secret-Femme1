@@ -123,22 +123,7 @@ a{text-decoration:none;color:inherit}
 .cd-digit{background:var(--color-primary);color:#fff;padding:2px 6px;border-radius:5px;font-size:14px;font-weight:700;min-width:26px;text-align:center}
 .cd-sep{color:var(--color-primary);font-weight:700;font-size:14px}
 
-.bundle-cards{display:flex;gap:6px;margin-top:12px}
-.bundle-card{flex:1;min-width:0;background:#fff;border:2px solid var(--color-border);border-radius:10px;padding:10px 6px;cursor:pointer;text-align:center;position:relative}
-.bundle-card.selected{border-color:var(--color-primary);background:var(--surface-bundle-selected)}
-.bundle-badge{position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:var(--color-primary);color:#fff;font-size:9px;font-weight:700;padding:2px 8px;border-radius:50px;white-space:nowrap}
-.bundle-qty{font-size:11px;font-weight:700;margin-bottom:3px}
-.bundle-price{font-size:14px;font-weight:700;color:var(--color-primary)}
-.bundle-old{font-size:10px;color:var(--color-text-light);text-decoration:line-through}
-.bundle-savings{display:inline-block;font-size:10px;color:var(--color-secondary);background:rgba(46,125,50,0.08);padding:1px 6px;border-radius:50px;margin-top:4px;font-weight:600}
-@media(min-width:480px){.bundle-card{padding:12px 10px}.bundle-qty{font-size:12px}.bundle-price{font-size:16px}}
 
-.qty-section{margin-top:12px}
-.qty-label{font-size:13px;font-weight:600;margin-bottom:6px}
-.qty-stepper{display:flex;align-items:center;gap:10px}
-.qty-btn{width:34px;height:34px;border-radius:50%;border:1px solid var(--color-border);background:#fff;font-size:18px;font-weight:600;display:flex;align-items:center;justify-content:center}
-.qty-btn:disabled{opacity:0.4}
-.qty-display{width:30px;text-align:center;font-size:15px;font-weight:700}
 
 .selector-group{margin-top:14px}
 .selector-label{font-size:13px;font-weight:600;margin-bottom:6px}
@@ -261,7 +246,7 @@ a{text-decoration:none;color:inherit}
 
 .confetti-piece{position:fixed;z-index:99999;width:6px;height:6px;animation:confettiFall linear forwards;pointer-events:none}
 
-@media(max-width:400px){.hero-section{padding:40px 8px 16px}.hero-h1{font-size:16px;line-height:1.3}.hero-sub{font-size:12px}.main-image-wrap img{aspect-ratio:3/4}.bundle-card{padding:8px 4px}.bundle-qty{font-size:10px}.bundle-price{font-size:12px}.bundle-old{font-size:8px}.bundle-savings{font-size:8px}.color-swatch{width:28px;height:28px}.size-btn{font-size:11px;min-height:34px;padding:0 10px}.delivery-btn{font-size:11px;padding:8px 4px}.summary-box{padding:10px}.summary-row .label{font-size:11px}.summary-row .value{font-size:12px}.summary-total-row .value{font-size:15px}.field input,.field select{padding:16px 12px 4px;font-size:13px}.field label{font-size:11px;top:11px}.field input:focus+label,.field input:not(:placeholder-shown)+label{top:3px;font-size:9px}.cta-button{padding:11px;font-size:14px}.section{padding:28px 12px}.play-overlay{width:44px;height:44px;font-size:18px}.success-card{padding:24px 16px}}
+@media(max-width:400px){.hero-section{padding:40px 8px 16px}.hero-h1{font-size:16px;line-height:1.3}.hero-sub{font-size:12px}.main-image-wrap img{aspect-ratio:3/4}.color-swatch{width:28px;height:28px}.size-btn{font-size:11px;min-height:34px;padding:0 10px}.delivery-btn{font-size:11px;padding:8px 4px}.summary-box{padding:10px}.summary-row .label{font-size:11px}.summary-row .value{font-size:12px}.summary-total-row .value{font-size:15px}.field input,.field select{padding:16px 12px 4px;font-size:13px}.field label{font-size:11px;top:11px}.field input:focus+label,.field input:not(:placeholder-shown)+label{top:3px;font-size:9px}.cta-button{padding:11px;font-size:14px}.section{padding:28px 12px}.play-overlay{width:44px;height:44px;font-size:18px}.success-card{padding:24px 16px}}
 .section-title{font-size:18px}.pain-text{font-size:14px}.feature-card{padding:14px}.feature-title{font-size:13px}.feature-desc{font-size:12px}.stat-num{font-size:22px}.countdown-wrap{padding:6px 8px}.countdown-label{font-size:10px}.cd-digit{font-size:12px;min-width:22px;padding:1px 4px}.bottom-trust{padding:4px 2px}.bottom-trust-item .text{font-size:7px}.btn-total{font-size:13px}}
 .btn-loading{animation:none!important;opacity:0.8}
 .btn-success{animation:none!important;background:linear-gradient(135deg,var(--color-secondary),#1B5E20)!important}
@@ -339,17 +324,10 @@ a{text-decoration:none;color:inherit}
         </div>
       </div>
 
-      <!-- Bundle Cards -->
-      <div class="bundle-cards" id="bundle-cards"></div>
-
-      <!-- Quantity Stepper -->
-      <div class="qty-section">
-        <div class="qty-label">الكمية:</div>
-        <div class="qty-stepper">
-          <button type="button" class="qty-btn" id="qty-minus">−</button>
-          <span class="qty-display" id="qty-display">1</span>
-          <button type="button" class="qty-btn" id="qty-plus">+</button>
-        </div>
+      <!-- Single Price Display -->
+      <div class="price-display" style="margin:14px 0;text-align:center">
+        <div style="font-size:var(--fs-price, clamp(1.5rem,1.25rem+1.5vw,2.25rem));font-weight:800;color:var(--color-primary)">3 600 دج</div>
+        <div style="font-size:var(--fs-small,13px);color:var(--color-text-muted)">سعر القطعة الواحدة — توصيل حسب الولاية</div>
       </div>
 
       <!-- Color Selector -->
@@ -377,20 +355,12 @@ a{text-decoration:none;color:inherit}
       <!-- Price Summary -->
       <div class="summary-box" id="summary-box">
         <div class="summary-row">
-          <span class="label">المنتج</span>
-          <span class="value" id="summary-bundle">قطعة واحدة</span>
-        </div>
-        <div class="summary-row">
           <span class="label">اللون</span>
           <span class="value"><span class="summary-color-indicator"><span class="summary-color-swatch" id="summary-color-swatch"></span><span id="summary-color-name">—</span></span></span>
         </div>
         <div class="summary-row">
           <span class="label">المقاس</span>
           <span class="value" id="summary-size">—</span>
-        </div>
-        <div class="summary-row">
-          <span class="label">الكمية الإجمالية</span>
-          <span class="value" id="summary-qty">1</span>
         </div>
         <hr class="summary-divider">
         <div class="summary-row">
@@ -400,7 +370,7 @@ a{text-decoration:none;color:inherit}
         <hr class="summary-divider">
         <div class="summary-row summary-total-row">
           <span class="label">المجموع عند الاستلام</span>
-          <span class="value" id="summary-total">3 000 دج</span>
+          <span class="value" id="summary-total">3 600 دج</span>
         </div>
       </div>
 
@@ -446,7 +416,7 @@ a{text-decoration:none;color:inherit}
           </div>
         </div>
 
-        <button type="submit" class="cta-button submit-btn" id="submit-btn">أكّدي الطلب — <span class="btn-total">3 000 دج</span></button>
+        <button type="submit" class="cta-button submit-btn" id="submit-btn">أكّدي الطلب — 3 600 دج</button>
         <div class="trust-text">فريقنا يتصل بيكِ لتأكيد الطلب قبل الإرسال — بلا ما تخلّصي حتى دورو قبل</div>
       </form>
 
@@ -645,7 +615,7 @@ a{text-decoration:none;color:inherit}
 
 <!-- Sticky Mobile Price -->
 <div class="sticky-mobile-price" id="sticky-mobile-price">
-  المجموع: <span id="sticky-price">3 000 دج</span>
+  المجموع: <span id="sticky-price">3 600 دج</span>
 </div>
 
 <script>
@@ -660,13 +630,6 @@ const OG_IMAGE_URL   = './4759b00cbfec43ea89b704efdcffe96a.png';
 const SIZE_GUIDE     = 'none';
 const MATERIAL       = 'قطن 100%';
 const NOTIFY_EMAIL   = '';
-
-const BUNDLE_DATA = [
-  { label: '1',   qty: 1, price: '3000', oldPrice: '3500' },
-  { label: '2',   qty: 2, price: '6000', oldPrice: '7000' },
-  { label: '3',   qty: 3, price: '9000', oldPrice: '10500' }
-];
-const BUNDLE_SAVINGS = ['', '', 'الأكثر طلباً'];
 
 const SIZE_DATA = [
   { label: 'S',  available: true,  urgent: false },
@@ -807,29 +770,19 @@ const COMMUNES_BY_WILAYA = {
 
 const UTM = (function(){var p=new URLSearchParams(window.location.search);return{source:p.get('utm_source')||'direct',medium:p.get('utm_medium')||'',campaign:p.get('utm_campaign')||'',content:p.get('utm_content')||'',term:p.get('utm_term')||''}})();
 
-let selectedSize='',selectedColor='',selectedBundleIdx=0,quantity=1,deliveryType='home',formSubmitRetried=false;
+let selectedSize='',selectedColor='',deliveryType='home',formSubmitRetried=false;
 
-document.addEventListener('DOMContentLoaded',function(){initEntranceAnimations();initScrollReveals();initBundleSelector();initQuantityStepper();initColorSelector();initSizeSelector();initDeliveryToggle();initCountdown();initImageGallery();initFAQAccordion();initWilayaCascade();initFormValidation();initFloatingParticles();initAnimatedCounters();initVideoOverlay();initScrollProgress();initFormDraft();initTilt();updatePriceSummary();document.getElementById('order-form-element')?.addEventListener('submit',handleFormSubmit)});
+document.addEventListener('DOMContentLoaded',function(){initEntranceAnimations();initScrollReveals();initColorSelector();initSizeSelector();initDeliveryToggle();initCountdown();initImageGallery();initFAQAccordion();initWilayaCascade();initFormValidation();initFloatingParticles();initAnimatedCounters();initVideoOverlay();initScrollProgress();initFormDraft();initTilt();updatePriceSummary();document.getElementById('order-form-element')?.addEventListener('submit',handleFormSubmit)});
 
 
 
-function initEntranceAnimations(){var els=[['#hero-image-wrap','hero-animate'],['#thumb-strip','hero-animate'],['#hero-h1','hero-animate'],['#bundle-cards','hero-animate'],['#order-form-card','hero-animate-form'],['#summary-box','hero-animate'],['#color-selector','hero-animate'],['#size-selector','hero-animate'],['#submit-btn','hero-animate']];els.forEach(function(e){var el=document.querySelector(e[0]);if(el)el.classList.add(e[1])})}
+function initEntranceAnimations(){var els=[['#hero-image-wrap','hero-animate'],['#thumb-strip','hero-animate'],['#hero-h1','hero-animate'],['#order-form-card','hero-animate-form'],['#summary-box','hero-animate'],['#color-selector','hero-animate'],['#size-selector','hero-animate'],['#submit-btn','hero-animate']];els.forEach(function(e){var el=document.querySelector(e[0]);if(el)el.classList.add(e[1])})}
 
 function initScrollReveals(){var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('revealed');observer.unobserve(entry.target)}})},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal-on-scroll').forEach(function(el){observer.observe(el)})}
 
-function initBundleSelector(){var container=document.getElementById('bundle-cards');if(!container)return;BUNDLE_DATA.forEach(function(bundle,i){var card=document.createElement('div');card.className='bundle-card card-tilt'+(i===0?' selected':'');card.dataset.index=i;card.setAttribute('data-tilt','');var savings=BUNDLE_SAVINGS[i]||'';var savingsAmt=parseInt(bundle.oldPrice)-parseInt(bundle.price);card.innerHTML=(savings?'<span class="bundle-badge">'+savings+'</span>':'')+'<div class="bundle-qty">'+formatBundleLabel(bundle.qty)+'</div><div class="bundle-price">'+formatPrice(bundle.price)+' دج</div>'+(bundle.oldPrice?'<div class="bundle-old">'+formatPrice(bundle.oldPrice)+' دج</div>':'')+(savingsAmt>0?'<div class="bundle-savings">توفير '+formatPrice(String(savingsAmt))+' دج</div>':'');card.addEventListener('click',function(){selectBundle(i)});container.appendChild(card)})}
-
-function selectBundle(idx){selectedBundleIdx=idx;document.querySelectorAll('.bundle-card').forEach(function(c,i){c.classList.toggle('selected',i===idx)});updatePriceSummary()}
-
-function formatBundleLabel(qty){if(qty===1)return'قطعة واحدة';if(qty===2)return'قطعتان';return qty+' قطع'}
-
-function formatPrice(p){return Number(p).toLocaleString('fr-DZ')}
-
-function initQuantityStepper(){var minusBtn=document.getElementById('qty-minus');var plusBtn=document.getElementById('qty-plus');var display=document.getElementById('qty-display');if(!minusBtn||!plusBtn||!display)return;minusBtn.addEventListener('click',function(){if(quantity>1){quantity--;display.textContent=quantity;minusBtn.disabled=quantity===1;updatePriceSummary()}});plusBtn.addEventListener('click',function(){quantity++;display.textContent=quantity;minusBtn.disabled=false;updatePriceSummary()})}
-
 function initDeliveryToggle(){var container=document.getElementById('delivery-toggle');if(!container)return;var buttons=container.querySelectorAll('.delivery-btn');buttons.forEach(function(btn){btn.addEventListener('click',function(){deliveryType=btn.dataset.type;buttons.forEach(function(b){b.classList.toggle('selected',b.dataset.type===deliveryType)})})})}
 
-function updatePriceSummary(){var bundle=BUNDLE_DATA[selectedBundleIdx];if(!bundle)return;var unitPrice=parseInt(bundle.price);var unitQty=bundle.qty;var totalQty=unitQty*quantity;var totalPrice=unitPrice*quantity;var priceEl=document.getElementById('summary-total');var qtyEl=document.getElementById('summary-qty');var bundleEl=document.getElementById('summary-bundle');if(priceEl){priceEl.textContent=formatPrice(String(totalPrice))+' دج';priceEl.style.animation='none';void priceEl.offsetWidth;priceEl.style.animation='priceReveal 0.3s var(--ease-out-expo)'}if(qtyEl)qtyEl.textContent=totalQty;if(bundleEl)bundleEl.textContent=formatBundleLabel(unitQty)+(quantity>1?' × '+quantity:'');var stickyPrice=document.getElementById('sticky-price');if(stickyPrice)stickyPrice.textContent=formatPrice(String(totalPrice))+' دج';var submitBtn=document.getElementById('submit-btn');if(submitBtn&&submitBtn.dataset.state!=='loading'&&submitBtn.dataset.state!=='success'){submitBtn.innerHTML='أكّدي الطلب — <span class="btn-total">'+formatPrice(String(totalPrice))+' دج</span>'}}
+function updatePriceSummary(){var totalPrice=3600;var priceEl=document.getElementById('summary-total');if(priceEl){priceEl.textContent='3 600 دج';priceEl.style.animation='none';void priceEl.offsetWidth;priceEl.style.animation='priceReveal 0.3s var(--ease-out-expo)'}var stickyPrice=document.getElementById('sticky-price');if(stickyPrice)stickyPrice.textContent='3 600 دج'}
 
 function initColorSelector(){var container=document.getElementById('color-swatches');if(!container)return;COLOR_DATA.forEach(function(color){var btn=document.createElement('button');btn.type='button';btn.className='color-swatch'+(color.available?'':' unavailable');btn.dataset.colorName=color.name;btn.dataset.colorHex=color.hex;btn.style.background=color.hex;btn.title=color.name;btn.disabled=!color.available;if(!color.available)btn.setAttribute('aria-label',color.name+' — غير متوفر');btn.addEventListener('click',function(){selectColor(btn)});container.appendChild(btn)})}
 
@@ -851,13 +804,13 @@ function initFormValidation(){var rules=[{id:'field_name',validate:function(v){r
 
 function validateForm(){var rules=[{id:'field_name',validate:function(v){return v.trim().length>=3},msg:'الرجاء إدخال الاسم الكامل'},{id:'field_phone',validate:function(v){return/^0[5-7][0-9]{8}$/.test(v.trim())},msg:'رقم الهاتف غير صحيح'},{id:'field_wilaya',validate:function(v){return v!==''},msg:'الرجاء اختيار الولاية'},{id:'field_commune',validate:function(v){return v!==''},msg:'الرجاء اختيار البلدية'},{id:'field_commune_input',validate:function(v){return v.trim().length>=2},msg:'الرجاء كتابة اسم البلدية'},{id:'field_address',validate:function(v){return v.trim().length>=10},msg:'الرجاء إدخال العنوان بالتفصيل'}];var valid=true;rules.forEach(function(rule){var el=document.getElementById(rule.id);if(!el||el.style.display==='none')return;var err=document.getElementById(rule.id+'-error');if(!rule.validate(el.value)){valid=false;el.classList.add('field-error');if(err){err.textContent=rule.msg;err.style.display='block'}}});return valid}
 
-async function handleFormSubmit(e){e.preventDefault();if(Date.now()<parseInt(localStorage.getItem(SUBMIT_KEY)||'0')){toast('انتظري لحظة قبل المحاولة مجدداً');return}if(document.getElementById('hp_w')?.value!==''){showFakeSuccess();return}if(!selectedColor){shakeElement('color-selector');document.getElementById('color-selector')?.scrollIntoView({behavior:'smooth',block:'center'});return}if(!selectedSize){shakeElement('size-selector');document.getElementById('size-selector')?.scrollIntoView({behavior:'smooth',block:'center'});return}if(!validateForm())return;var bundle=BUNDLE_DATA[selectedBundleIdx];var getVal=function(id){return document.getElementById(id)?.value||''};var getCommuneText=function(){var sel=document.getElementById('field_commune');var inp=document.getElementById('field_commune_input');if(inp&&inp.style.display!=='none')return inp.value.trim();return sel?.options[sel.selectedIndex]?.text||''};var getOptText=function(id){var sel=document.getElementById(id);return sel?.options[sel.selectedIndex]?.text||''};var payload={name:getVal('field_name').trim(),phone:getVal('field_phone').trim(),wilaya:getOptText('field_wilaya'),commune:getCommuneText(),address:getVal('field_address').trim(),notes:getVal('field_notes').trim(),product:PRODUCT_NAME,color:selectedColor,size:selectedSize,bundle_label:formatBundleLabel(bundle.qty),bundle_qty:bundle.qty*quantity,quantity:bundle.qty*quantity,unit_price:bundle.price,total_price:String(parseInt(bundle.price)*quantity),price:String(parseInt(bundle.price)*quantity),delivery_type:deliveryType,type_livraison:deliveryType,utm_source:UTM.source,utm_medium:UTM.medium,utm_campaign:UTM.campaign,utm_content:UTM.content,utm_term:UTM.term,page_url:window.location.href,timestamp:new Date().toISOString()};setButtonState('loading');var controller=new AbortController();var timeoutId=setTimeout(function(){return controller.abort()},8000);var fd=new URLSearchParams();for(var k in payload){fd.append(k,payload[k])}try{await fetch(GAS_URL,{method:'POST',mode:'no-cors',body:fd,signal:controller.signal});clearTimeout(timeoutId);onOrderSuccess()}catch(err){clearTimeout(timeoutId);if(err.name==='AbortError'){setButtonState('timeout')}else if(!formSubmitRetried){formSubmitRetried=true;setButtonState('loading');setTimeout(function(){return handleFormSubmit(e)},3000)}else{setButtonState('error')}}}
+async function handleFormSubmit(e){e.preventDefault();if(Date.now()<parseInt(localStorage.getItem(SUBMIT_KEY)||'0')){toast('انتظري لحظة قبل المحاولة مجدداً');return}if(document.getElementById('hp_w')?.value!==''){showFakeSuccess();return}if(!selectedColor){shakeElement('color-selector');document.getElementById('color-selector')?.scrollIntoView({behavior:'smooth',block:'center'});return}if(!selectedSize){shakeElement('size-selector');document.getElementById('size-selector')?.scrollIntoView({behavior:'smooth',block:'center'});return}if(!validateForm())return;var getVal=function(id){return document.getElementById(id)?.value||''};var getCommuneText=function(){var sel=document.getElementById('field_commune');var inp=document.getElementById('field_commune_input');if(inp&&inp.style.display!=='none')return inp.value.trim();return sel?.options[sel.selectedIndex]?.text||''};var getOptText=function(id){var sel=document.getElementById(id);return sel?.options[sel.selectedIndex]?.text||''};var payload={name:getVal('field_name').trim(),phone:getVal('field_phone').trim(),wilaya:getOptText('field_wilaya'),commune:getCommuneText(),address:getVal('field_address').trim(),notes:getVal('field_notes').trim(),product:PRODUCT_NAME,color:selectedColor,size:selectedSize,quantity:'1',unit_price:'3600',total_price:'3600',price:'3600',delivery_type:deliveryType,type_livraison:deliveryType,utm_source:UTM.source,utm_medium:UTM.medium,utm_campaign:UTM.campaign,utm_content:UTM.content,utm_term:UTM.term,page_url:window.location.href,timestamp:new Date().toISOString()};setButtonState('loading');var controller=new AbortController();var timeoutId=setTimeout(function(){return controller.abort()},8000);var fd=new URLSearchParams();for(var k in payload){fd.append(k,payload[k])}try{await fetch(GAS_URL,{method:'POST',mode:'no-cors',body:fd,signal:controller.signal});clearTimeout(timeoutId);onOrderSuccess()}catch(err){clearTimeout(timeoutId);if(err.name==='AbortError'){setButtonState('timeout')}else if(!formSubmitRetried){formSubmitRetried=true;setButtonState('loading');setTimeout(function(){return handleFormSubmit(e)},3000)}else{setButtonState('error')}}}
 
-function onOrderSuccess(){setButtonState('success');clearFormDraft();localStorage.setItem(SUBMIT_KEY,String(Date.now()+30000));triggerConfetti();var msg=document.getElementById('success-message');if(msg)msg.style.display='block';var overlay=document.createElement('div');overlay.className='success-overlay';var name=document.getElementById('field_name')?.value||'';var phone=document.getElementById('field_phone')?.value||'';var bundle=BUNDLE_DATA[selectedBundleIdx];var total=parseInt(bundle.price)*quantity;var msgWA=encodeURIComponent('مرحباً، أنا '+name+' أؤكد طلبي:\n'+PRODUCT_NAME+' × '+bundle.qty+'\nالمقاس: '+selectedSize+'\nاللون: '+selectedColor+'\nالمبلغ: '+total+' دج');overlay.innerHTML='<div class="success-card"><div class="success-checkmark">✓</div><h2>تم استلام طلبك!</h2><p>سنتصل بك خلال ساعات على <strong>'+phone+'</strong></p><div class="success-summary"><strong>'+PRODUCT_NAME+'</strong><br>× '+bundle.qty+' | المقاس: '+selectedSize+' | اللون: '+selectedColor+'<br><strong>المجموع: '+formatPrice(String(total))+' دج</strong></div><a class="cta-button shimmer" style="text-align:center;display:block;text-decoration:none" href="https://wa.me/213'+WHATSAPP_NUM.replace(/^0+/,'')+'?text='+msgWA+'" target="_blank" rel="noopener">متابعة عبر واتساب</a><button class="btn-link" onclick="this.closest(\'.success-overlay\').remove()">إغلاق</button></div>';document.body.appendChild(overlay);document.getElementById('order-form-element')?.querySelectorAll('input,select,textarea,button').forEach(function(el){return el.disabled=true});if(PIXEL_ID){fbq('track','Lead',{value:total,currency:'DZD',content_name:PRODUCT_NAME})}}
+function onOrderSuccess(){setButtonState('success');clearFormDraft();localStorage.setItem(SUBMIT_KEY,String(Date.now()+30000));triggerConfetti();var msg=document.getElementById('success-message');if(msg)msg.style.display='block';var overlay=document.createElement('div');overlay.className='success-overlay';var name=document.getElementById('field_name')?.value||'';var phone=document.getElementById('field_phone')?.value||'';var msgWA=encodeURIComponent('مرحباً، أنا '+name+' أؤكد طلبي:\n'+PRODUCT_NAME+'\nالمقاس: '+selectedSize+'\nاللون: '+selectedColor+'\nالمبلغ: 3600 دج');overlay.innerHTML='<div class="success-card"><div class="success-checkmark">✓</div><h2>تم استلام طلبك!</h2><p>سنتصل بك خلال ساعات على <strong>'+phone+'</strong></p><div class="success-summary"><strong>'+PRODUCT_NAME+'</strong><br>المقاس: '+selectedSize+' | اللون: '+selectedColor+'<br><strong>المجموع: 3 600 دج</strong></div><a class="cta-button shimmer" style="text-align:center;display:block;text-decoration:none" href="https://wa.me/213'+WHATSAPP_NUM.replace(/^0+/,'')+'?text='+msgWA+'" target="_blank" rel="noopener">متابعة عبر واتساب</a><button class="btn-link" onclick="this.closest(\'.success-overlay\').remove()">إغلاق</button></div>';document.body.appendChild(overlay);document.getElementById('order-form-element')?.querySelectorAll('input,select,textarea,button').forEach(function(el){return el.disabled=true});if(PIXEL_ID){fbq('track','Lead',{value:3600,currency:'DZD',content_name:PRODUCT_NAME})}}
 
 function showFakeSuccess(){setButtonState('success');triggerConfetti()}
 
-function setButtonState(state){var btn=document.getElementById('submit-btn');if(!btn)return;var bundle=BUNDLE_DATA[selectedBundleIdx];var total=bundle?parseInt(bundle.price)*quantity:0;var states={loading:{html:'جاري الإرسال...',disabled:true,cls:'btn-loading'},success:{html:'تم استلام طلبك!',disabled:true,cls:'btn-success'},timeout:{html:'انتهت المهلة — أعيدي المحاولة',disabled:false,cls:'btn-error'},error:{html:'حدث خطأ، أعيدي المحاولة',disabled:false,cls:'btn-error'},default:{html:'أكّدي الطلب — <span class="btn-total">'+formatPrice(String(total))+' دج</span>',disabled:false,cls:''}};var s=states[state]||states.default;btn.innerHTML=s.html;btn.disabled=s.disabled;btn.className='cta-button submit-btn '+s.cls;btn.dataset.state=state}
+function setButtonState(state){var btn=document.getElementById('submit-btn');if(!btn)return;var states={loading:{html:'جاري الإرسال...',disabled:true,cls:'btn-loading'},success:{html:'تم استلام طلبك!',disabled:true,cls:'btn-success'},timeout:{html:'انتهت المهلة — أعيدي المحاولة',disabled:false,cls:'btn-error'},error:{html:'حدث خطأ، أعيدي المحاولة',disabled:false,cls:'btn-error'},default:{html:'أكّدي الطلب — 3 600 دج',disabled:false,cls:''}};var s=states[state]||states.default;btn.innerHTML=s.html;btn.disabled=s.disabled;btn.className='cta-button submit-btn '+s.cls;btn.dataset.state=state}
 
 function triggerConfetti(){var colors=[getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim(),getComputedStyle(document.documentElement).getPropertyValue('--color-gold').trim(),getComputedStyle(document.documentElement).getPropertyValue('--color-secondary').trim()];for(var i=0;i<24;i++){var piece=document.createElement('div');piece.className='confetti-piece';piece.style.left=Math.random()*100+'vw';piece.style.top='-10px';piece.style.background=colors[i%colors.length];piece.style.animationDuration=(2+Math.random()*2)+'s';piece.style.animationDelay=(Math.random()*0.5)+'s';if(i%3===0){piece.style.width='6px';piece.style.height='12px'}if(i%4===0){piece.style.borderRadius='50%';piece.style.width='10px';piece.style.height='10px'}document.body.appendChild(piece);setTimeout(function(){return piece.remove()},4000)}}
 
