@@ -283,7 +283,10 @@ a{text-decoration:none;color:inherit}
     <!-- LEFT COLUMN: Product Gallery -->
     <div class="hero-gallery">
       <div class="main-image-wrap" id="hero-image-wrap">
-        <img id="hero-main-img" src="./ازرق.png" alt="بيجامة نسائية أنيقة Secret Femme" loading="eager" decoding="async" onerror="this.parentElement.classList.add('has-error')">
+        <picture>
+          <source id="hero-webp-src" srcset="./ازرق.webp" type="image/webp">
+          <img id="hero-main-img" src="./ازرق.png" alt="بيجامة نسائية أنيقة Secret Femme" loading="eager" decoding="async" onerror="this.parentElement.parentElement.classList.add('has-error')">
+        </picture>
         <div class="hero-fallback" role="img" aria-label="بيجامة نسائية أنيقة">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
             <rect x="3" y="3" width="18" height="18" rx="2"/>
@@ -624,10 +627,10 @@ const SIZE_DATA = [
 ];
 
 const COLOR_DATA = [
-  { name: 'أزرق', hex: '#1E88E5', available: true, image: './ازرق.png' },
-  { name: 'وردي', hex: '#E91E63', available: true, image: './وردي.png' },
-  { name: 'أحمر', hex: '#D32F2F', available: true, image: './احمر.png' },
-  { name: 'برتقالي', hex: '#FF9800', available: true, image: './برتقالي.png' }
+  { name: 'أزرق', hex: '#1E88E5', available: true, image: './ازرق.webp' },
+  { name: 'وردي', hex: '#E91E63', available: true, image: './وردي.webp' },
+  { name: 'أحمر', hex: '#D32F2F', available: true, image: './احمر.webp' },
+  { name: 'برتقالي', hex: '#FF9800', available: true, image: './برتقالي.webp' }
 ];
 
 const WILAYAS_58 = [
@@ -777,7 +780,7 @@ function updatePriceSummary(){var bundle=BUNDLE_DATA[selectedBundleIdx];if(!bund
 
 function initColorSelector(){var container=document.getElementById('color-swatches');if(!container)return;COLOR_DATA.forEach(function(color){var btn=document.createElement('button');btn.type='button';btn.className='color-swatch'+(color.available?'':' unavailable');btn.dataset.colorName=color.name;btn.dataset.colorHex=color.hex;btn.style.background=color.hex;btn.title=color.name;btn.disabled=!color.available;if(!color.available)btn.setAttribute('aria-label',color.name+' — غير متوفر');btn.addEventListener('click',function(){selectColor(btn)});container.appendChild(btn)})}
 
-function selectColor(btn){document.querySelectorAll('.color-swatch').forEach(function(s){return s.classList.remove('selected')});btn.classList.add('selected');selectedColor=btn.dataset.colorName;['color-display','summary-color-name'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=selectedColor});var summSwatch=document.getElementById('summary-color-swatch');if(summSwatch)summSwatch.style.background=btn.dataset.colorHex;document.getElementById('color-selector')?.classList.remove('selector-error');var color=COLOR_DATA.find(function(c){return c.name===selectedColor});var img=document.getElementById('hero-main-img');if(color&&img&&img.src.indexOf(color.image)<0){img.style.opacity='0';setTimeout(function(){img.src=color.image;img.onload=function(){img.style.opacity='1'};img.onerror=function(){img.style.opacity='1'}},150)}}
+function selectColor(btn){document.querySelectorAll('.color-swatch').forEach(function(s){return s.classList.remove('selected')});btn.classList.add('selected');selectedColor=btn.dataset.colorName;['color-display','summary-color-name'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=selectedColor});var summSwatch=document.getElementById('summary-color-swatch');if(summSwatch)summSwatch.style.background=btn.dataset.colorHex;document.getElementById('color-selector')?.classList.remove('selector-error');var color=COLOR_DATA.find(function(c){return c.name===selectedColor});if(!color)return;var img=document.getElementById('hero-main-img');var webp=document.getElementById('hero-webp-src');if(img&&img.src.indexOf(color.image.replace('.webp','.png'))<0){img.style.opacity='0';setTimeout(function(){img.src=color.image.replace('.webp','.png');if(webp)webp.srcset=color.image;img.onload=function(){img.style.opacity='1'};img.onerror=function(){img.style.opacity='1'}},150)}}
 
 function initSizeSelector(){var container=document.getElementById('size-buttons');if(!container)return;SIZE_DATA.forEach(function(size){var wrap=document.createElement('div');wrap.style.position='relative';var btn=document.createElement('button');btn.type='button';btn.className='size-btn'+(size.available?'':' unavailable');btn.textContent=size.label;btn.disabled=!size.available;btn.dataset.size=size.label;btn.dataset.urgent=size.urgent?'true':'false';if(size.urgent&&size.available){var dot=document.createElement('span');dot.className='size-urgent-dot';dot.style.cssText='position:absolute;top:-4px;right:-4px;width:8px;height:8px;background:#F44336;border-radius:50%;animation:urgentPulse 1.5s ease infinite';wrap.appendChild(dot)}btn.addEventListener('click',function(){selectSize(btn)});wrap.appendChild(btn);container.appendChild(wrap)})}
 
